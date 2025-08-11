@@ -1,0 +1,9 @@
+targets:
+  $default:
+    builders:
+      protoc_plugin|protoc:
+        enabled: true
+        generate_for:
+          - proto/**/*.proto
+        options:
+          output_dir: lib/src/generated

@@ -1,0 +1,602 @@
+// This is a generated file - do not edit.
+//
+// Generated from sui/rpc/v2beta2/effects.proto.
+
+// @dart = 3.3
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names
+// ignore_for_file: curly_braces_in_flow_control_structures
+// ignore_for_file: deprecated_member_use_from_same_package, library_prefixes
+// ignore_for_file: non_constant_identifier_names
+
+import 'dart:core' as $core;
+
+import 'package:fixnum/fixnum.dart' as $fixnum;
+import 'package:protobuf/protobuf.dart' as $pb;
+
+import 'bcs.pb.dart' as $0;
+import 'effects.pbenum.dart';
+import 'execution_status.pb.dart' as $1;
+import 'gas_cost_summary.pb.dart' as $2;
+import 'owner.pb.dart' as $3;
+
+export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
+
+export 'effects.pbenum.dart';
+
+/// The effects of executing a transaction.
+class TransactionEffects extends $pb.GeneratedMessage {
+  factory TransactionEffects({
+    $0.Bcs? bcs,
+    $core.String? digest,
+    $core.int? version,
+    $1.ExecutionStatus? status,
+    $fixnum.Int64? epoch,
+    $2.GasCostSummary? gasUsed,
+    $core.String? transactionDigest,
+    ChangedObject? gasObject,
+    $core.String? eventsDigest,
+    $core.Iterable<$core.String>? dependencies,
+    $fixnum.Int64? lamportVersion,
+    $core.Iterable<ChangedObject>? changedObjects,
+    $core.Iterable<UnchangedSharedObject>? unchangedSharedObjects,
+    $core.String? auxiliaryDataDigest,
+  }) {
+    final result = create();
+    if (bcs != null) result.bcs = bcs;
+    if (digest != null) result.digest = digest;
+    if (version != null) result.version = version;
+    if (status != null) result.status = status;
+    if (epoch != null) result.epoch = epoch;
+    if (gasUsed != null) result.gasUsed = gasUsed;
+    if (transactionDigest != null) result.transactionDigest = transactionDigest;
+    if (gasObject != null) result.gasObject = gasObject;
+    if (eventsDigest != null) result.eventsDigest = eventsDigest;
+    if (dependencies != null) result.dependencies.addAll(dependencies);
+    if (lamportVersion != null) result.lamportVersion = lamportVersion;
+    if (changedObjects != null) result.changedObjects.addAll(changedObjects);
+    if (unchangedSharedObjects != null)
+      result.unchangedSharedObjects.addAll(unchangedSharedObjects);
+    if (auxiliaryDataDigest != null)
+      result.auxiliaryDataDigest = auxiliaryDataDigest;
+    return result;
+  }
+
+  TransactionEffects._();
+
+  factory TransactionEffects.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory TransactionEffects.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'TransactionEffects',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'sui.rpc.v2beta2'),
+      createEmptyInstance: create)
+    ..aOM<$0.Bcs>(1, _omitFieldNames ? '' : 'bcs', subBuilder: $0.Bcs.create)
+    ..aOS(2, _omitFieldNames ? '' : 'digest')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'version', $pb.PbFieldType.O3)
+    ..aOM<$1.ExecutionStatus>(4, _omitFieldNames ? '' : 'status',
+        subBuilder: $1.ExecutionStatus.create)
+    ..a<$fixnum.Int64>(5, _omitFieldNames ? '' : 'epoch', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOM<$2.GasCostSummary>(6, _omitFieldNames ? '' : 'gasUsed',
+        subBuilder: $2.GasCostSummary.create)
+    ..aOS(7, _omitFieldNames ? '' : 'transactionDigest')
+    ..aOM<ChangedObject>(8, _omitFieldNames ? '' : 'gasObject',
+        subBuilder: ChangedObject.create)
+    ..aOS(9, _omitFieldNames ? '' : 'eventsDigest')
+    ..pPS(10, _omitFieldNames ? '' : 'dependencies')
+    ..a<$fixnum.Int64>(
+        11, _omitFieldNames ? '' : 'lamportVersion', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..pc<ChangedObject>(
+        12, _omitFieldNames ? '' : 'changedObjects', $pb.PbFieldType.PM,
+        subBuilder: ChangedObject.create)
+    ..pc<UnchangedSharedObject>(
+        13, _omitFieldNames ? '' : 'unchangedSharedObjects', $pb.PbFieldType.PM,
+        subBuilder: UnchangedSharedObject.create)
+    ..aOS(14, _omitFieldNames ? '' : 'auxiliaryDataDigest')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  TransactionEffects clone() => TransactionEffects()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  TransactionEffects copyWith(void Function(TransactionEffects) updates) =>
+      super.copyWith((message) => updates(message as TransactionEffects))
+          as TransactionEffects;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static TransactionEffects create() => TransactionEffects._();
+  @$core.override
+  TransactionEffects createEmptyInstance() => create();
+  static $pb.PbList<TransactionEffects> createRepeated() =>
+      $pb.PbList<TransactionEffects>();
+  @$core.pragma('dart2js:noInline')
+  static TransactionEffects getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<TransactionEffects>(create);
+  static TransactionEffects? _defaultInstance;
+
+  /// This TransactionEffects serialized as BCS.
+  @$pb.TagNumber(1)
+  $0.Bcs get bcs => $_getN(0);
+  @$pb.TagNumber(1)
+  set bcs($0.Bcs value) => $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasBcs() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearBcs() => $_clearField(1);
+  @$pb.TagNumber(1)
+  $0.Bcs ensureBcs() => $_ensure(0);
+
+  /// The digest of this TransactionEffects.
+  @$pb.TagNumber(2)
+  $core.String get digest => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set digest($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasDigest() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDigest() => $_clearField(2);
+
+  /// Version of this TransactionEffects.
+  @$pb.TagNumber(3)
+  $core.int get version => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set version($core.int value) => $_setSignedInt32(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasVersion() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearVersion() => $_clearField(3);
+
+  /// The status of the execution.
+  @$pb.TagNumber(4)
+  $1.ExecutionStatus get status => $_getN(3);
+  @$pb.TagNumber(4)
+  set status($1.ExecutionStatus value) => $_setField(4, value);
+  @$pb.TagNumber(4)
+  $core.bool hasStatus() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearStatus() => $_clearField(4);
+  @$pb.TagNumber(4)
+  $1.ExecutionStatus ensureStatus() => $_ensure(3);
+
+  /// The epoch when this transaction was executed.
+  @$pb.TagNumber(5)
+  $fixnum.Int64 get epoch => $_getI64(4);
+  @$pb.TagNumber(5)
+  set epoch($fixnum.Int64 value) => $_setInt64(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasEpoch() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearEpoch() => $_clearField(5);
+
+  /// The gas used by this transaction.
+  @$pb.TagNumber(6)
+  $2.GasCostSummary get gasUsed => $_getN(5);
+  @$pb.TagNumber(6)
+  set gasUsed($2.GasCostSummary value) => $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasGasUsed() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearGasUsed() => $_clearField(6);
+  @$pb.TagNumber(6)
+  $2.GasCostSummary ensureGasUsed() => $_ensure(5);
+
+  /// The transaction digest.
+  @$pb.TagNumber(7)
+  $core.String get transactionDigest => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set transactionDigest($core.String value) => $_setString(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasTransactionDigest() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearTransactionDigest() => $_clearField(7);
+
+  /// Information about the gas object. Also present in the `changed_objects` vector.
+  ///
+  /// System transaction that don't require gas will leave this as `None`.
+  @$pb.TagNumber(8)
+  ChangedObject get gasObject => $_getN(7);
+  @$pb.TagNumber(8)
+  set gasObject(ChangedObject value) => $_setField(8, value);
+  @$pb.TagNumber(8)
+  $core.bool hasGasObject() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearGasObject() => $_clearField(8);
+  @$pb.TagNumber(8)
+  ChangedObject ensureGasObject() => $_ensure(7);
+
+  /// The digest of the events emitted during execution,
+  /// can be `None` if the transaction does not emit any event.
+  @$pb.TagNumber(9)
+  $core.String get eventsDigest => $_getSZ(8);
+  @$pb.TagNumber(9)
+  set eventsDigest($core.String value) => $_setString(8, value);
+  @$pb.TagNumber(9)
+  $core.bool hasEventsDigest() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearEventsDigest() => $_clearField(9);
+
+  /// The set of transaction digests this transaction depends on.
+  @$pb.TagNumber(10)
+  $pb.PbList<$core.String> get dependencies => $_getList(9);
+
+  /// The version number of all the written objects (excluding packages) by this transaction.
+  @$pb.TagNumber(11)
+  $fixnum.Int64 get lamportVersion => $_getI64(10);
+  @$pb.TagNumber(11)
+  set lamportVersion($fixnum.Int64 value) => $_setInt64(10, value);
+  @$pb.TagNumber(11)
+  $core.bool hasLamportVersion() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearLamportVersion() => $_clearField(11);
+
+  /// Objects whose state are changed by this transaction.
+  @$pb.TagNumber(12)
+  $pb.PbList<ChangedObject> get changedObjects => $_getList(11);
+
+  /// Shared objects that are not mutated in this transaction. Unlike owned objects,
+  /// read-only shared objects' version are not committed in the transaction,
+  /// and in order for a node to catch up and execute it without consensus sequencing,
+  /// the version needs to be committed in the effects.
+  @$pb.TagNumber(13)
+  $pb.PbList<UnchangedSharedObject> get unchangedSharedObjects => $_getList(12);
+
+  /// Auxiliary data that are not protocol-critical, generated as part of the effects but are stored separately.
+  /// Storing it separately allows us to avoid bloating the effects with data that are not critical.
+  /// It also provides more flexibility on the format and type of the data.
+  @$pb.TagNumber(14)
+  $core.String get auxiliaryDataDigest => $_getSZ(13);
+  @$pb.TagNumber(14)
+  set auxiliaryDataDigest($core.String value) => $_setString(13, value);
+  @$pb.TagNumber(14)
+  $core.bool hasAuxiliaryDataDigest() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearAuxiliaryDataDigest() => $_clearField(14);
+}
+
+/// Input/output state of an object that was changed during execution.
+class ChangedObject extends $pb.GeneratedMessage {
+  factory ChangedObject({
+    $core.String? objectId,
+    ChangedObject_InputObjectState? inputState,
+    $fixnum.Int64? inputVersion,
+    $core.String? inputDigest,
+    $3.Owner? inputOwner,
+    ChangedObject_OutputObjectState? outputState,
+    $fixnum.Int64? outputVersion,
+    $core.String? outputDigest,
+    $3.Owner? outputOwner,
+    ChangedObject_IdOperation? idOperation,
+    $core.String? objectType,
+  }) {
+    final result = create();
+    if (objectId != null) result.objectId = objectId;
+    if (inputState != null) result.inputState = inputState;
+    if (inputVersion != null) result.inputVersion = inputVersion;
+    if (inputDigest != null) result.inputDigest = inputDigest;
+    if (inputOwner != null) result.inputOwner = inputOwner;
+    if (outputState != null) result.outputState = outputState;
+    if (outputVersion != null) result.outputVersion = outputVersion;
+    if (outputDigest != null) result.outputDigest = outputDigest;
+    if (outputOwner != null) result.outputOwner = outputOwner;
+    if (idOperation != null) result.idOperation = idOperation;
+    if (objectType != null) result.objectType = objectType;
+    return result;
+  }
+
+  ChangedObject._();
+
+  factory ChangedObject.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory ChangedObject.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'ChangedObject',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'sui.rpc.v2beta2'),
+      createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'objectId')
+    ..e<ChangedObject_InputObjectState>(
+        2, _omitFieldNames ? '' : 'inputState', $pb.PbFieldType.OE,
+        defaultOrMaker:
+            ChangedObject_InputObjectState.INPUT_OBJECT_STATE_UNKNOWN,
+        valueOf: ChangedObject_InputObjectState.valueOf,
+        enumValues: ChangedObject_InputObjectState.values)
+    ..a<$fixnum.Int64>(
+        3, _omitFieldNames ? '' : 'inputVersion', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(4, _omitFieldNames ? '' : 'inputDigest')
+    ..aOM<$3.Owner>(5, _omitFieldNames ? '' : 'inputOwner',
+        subBuilder: $3.Owner.create)
+    ..e<ChangedObject_OutputObjectState>(
+        6, _omitFieldNames ? '' : 'outputState', $pb.PbFieldType.OE,
+        defaultOrMaker:
+            ChangedObject_OutputObjectState.OUTPUT_OBJECT_STATE_UNKNOWN,
+        valueOf: ChangedObject_OutputObjectState.valueOf,
+        enumValues: ChangedObject_OutputObjectState.values)
+    ..a<$fixnum.Int64>(
+        7, _omitFieldNames ? '' : 'outputVersion', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(8, _omitFieldNames ? '' : 'outputDigest')
+    ..aOM<$3.Owner>(9, _omitFieldNames ? '' : 'outputOwner',
+        subBuilder: $3.Owner.create)
+    ..e<ChangedObject_IdOperation>(
+        10, _omitFieldNames ? '' : 'idOperation', $pb.PbFieldType.OE,
+        defaultOrMaker: ChangedObject_IdOperation.ID_OPERATION_UNKNOWN,
+        valueOf: ChangedObject_IdOperation.valueOf,
+        enumValues: ChangedObject_IdOperation.values)
+    ..aOS(11, _omitFieldNames ? '' : 'objectType')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ChangedObject clone() => ChangedObject()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  ChangedObject copyWith(void Function(ChangedObject) updates) =>
+      super.copyWith((message) => updates(message as ChangedObject))
+          as ChangedObject;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ChangedObject create() => ChangedObject._();
+  @$core.override
+  ChangedObject createEmptyInstance() => create();
+  static $pb.PbList<ChangedObject> createRepeated() =>
+      $pb.PbList<ChangedObject>();
+  @$core.pragma('dart2js:noInline')
+  static ChangedObject getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<ChangedObject>(create);
+  static ChangedObject? _defaultInstance;
+
+  /// ID of the object.
+  @$pb.TagNumber(1)
+  $core.String get objectId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set objectId($core.String value) => $_setString(0, value);
+  @$pb.TagNumber(1)
+  $core.bool hasObjectId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearObjectId() => $_clearField(1);
+
+  @$pb.TagNumber(2)
+  ChangedObject_InputObjectState get inputState => $_getN(1);
+  @$pb.TagNumber(2)
+  set inputState(ChangedObject_InputObjectState value) => $_setField(2, value);
+  @$pb.TagNumber(2)
+  $core.bool hasInputState() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearInputState() => $_clearField(2);
+
+  /// Version of the object before this transaction executed.
+  @$pb.TagNumber(3)
+  $fixnum.Int64 get inputVersion => $_getI64(2);
+  @$pb.TagNumber(3)
+  set inputVersion($fixnum.Int64 value) => $_setInt64(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasInputVersion() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearInputVersion() => $_clearField(3);
+
+  /// Digest of the object before this transaction executed.
+  @$pb.TagNumber(4)
+  $core.String get inputDigest => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set inputDigest($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasInputDigest() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearInputDigest() => $_clearField(4);
+
+  /// Owner of the object before this transaction executed.
+  @$pb.TagNumber(5)
+  $3.Owner get inputOwner => $_getN(4);
+  @$pb.TagNumber(5)
+  set inputOwner($3.Owner value) => $_setField(5, value);
+  @$pb.TagNumber(5)
+  $core.bool hasInputOwner() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearInputOwner() => $_clearField(5);
+  @$pb.TagNumber(5)
+  $3.Owner ensureInputOwner() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  ChangedObject_OutputObjectState get outputState => $_getN(5);
+  @$pb.TagNumber(6)
+  set outputState(ChangedObject_OutputObjectState value) =>
+      $_setField(6, value);
+  @$pb.TagNumber(6)
+  $core.bool hasOutputState() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearOutputState() => $_clearField(6);
+
+  /// Version of the object after this transaction executed.
+  @$pb.TagNumber(7)
+  $fixnum.Int64 get outputVersion => $_getI64(6);
+  @$pb.TagNumber(7)
+  set outputVersion($fixnum.Int64 value) => $_setInt64(6, value);
+  @$pb.TagNumber(7)
+  $core.bool hasOutputVersion() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearOutputVersion() => $_clearField(7);
+
+  /// Digest of the object after this transaction executed.
+  @$pb.TagNumber(8)
+  $core.String get outputDigest => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set outputDigest($core.String value) => $_setString(7, value);
+  @$pb.TagNumber(8)
+  $core.bool hasOutputDigest() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearOutputDigest() => $_clearField(8);
+
+  /// Owner of the object after this transaction executed.
+  @$pb.TagNumber(9)
+  $3.Owner get outputOwner => $_getN(8);
+  @$pb.TagNumber(9)
+  set outputOwner($3.Owner value) => $_setField(9, value);
+  @$pb.TagNumber(9)
+  $core.bool hasOutputOwner() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearOutputOwner() => $_clearField(9);
+  @$pb.TagNumber(9)
+  $3.Owner ensureOutputOwner() => $_ensure(8);
+
+  /// What happened to an `ObjectId` during execution.
+  @$pb.TagNumber(10)
+  ChangedObject_IdOperation get idOperation => $_getN(9);
+  @$pb.TagNumber(10)
+  set idOperation(ChangedObject_IdOperation value) => $_setField(10, value);
+  @$pb.TagNumber(10)
+  $core.bool hasIdOperation() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearIdOperation() => $_clearField(10);
+
+  /// Type information is not provided by the effects structure but is instead
+  /// provided by an indexing layer
+  @$pb.TagNumber(11)
+  $core.String get objectType => $_getSZ(10);
+  @$pb.TagNumber(11)
+  set objectType($core.String value) => $_setString(10, value);
+  @$pb.TagNumber(11)
+  $core.bool hasObjectType() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearObjectType() => $_clearField(11);
+}
+
+/// A shared object that wasn't changed during execution.
+class UnchangedSharedObject extends $pb.GeneratedMessage {
+  factory UnchangedSharedObject({
+    UnchangedSharedObject_UnchangedSharedObjectKind? kind,
+    $core.String? objectId,
+    $fixnum.Int64? version,
+    $core.String? digest,
+    $core.String? objectType,
+  }) {
+    final result = create();
+    if (kind != null) result.kind = kind;
+    if (objectId != null) result.objectId = objectId;
+    if (version != null) result.version = version;
+    if (digest != null) result.digest = digest;
+    if (objectType != null) result.objectType = objectType;
+    return result;
+  }
+
+  UnchangedSharedObject._();
+
+  factory UnchangedSharedObject.fromBuffer($core.List<$core.int> data,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromBuffer(data, registry);
+  factory UnchangedSharedObject.fromJson($core.String json,
+          [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
+      create()..mergeFromJson(json, registry);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
+      _omitMessageNames ? '' : 'UnchangedSharedObject',
+      package:
+          const $pb.PackageName(_omitMessageNames ? '' : 'sui.rpc.v2beta2'),
+      createEmptyInstance: create)
+    ..e<UnchangedSharedObject_UnchangedSharedObjectKind>(
+        1, _omitFieldNames ? '' : 'kind', $pb.PbFieldType.OE,
+        defaultOrMaker: UnchangedSharedObject_UnchangedSharedObjectKind
+            .UNCHANGED_SHARED_OBJECT_KIND_UNKNOWN,
+        valueOf: UnchangedSharedObject_UnchangedSharedObjectKind.valueOf,
+        enumValues: UnchangedSharedObject_UnchangedSharedObjectKind.values)
+    ..aOS(2, _omitFieldNames ? '' : 'objectId')
+    ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'version', $pb.PbFieldType.OU6,
+        defaultOrMaker: $fixnum.Int64.ZERO)
+    ..aOS(4, _omitFieldNames ? '' : 'digest')
+    ..aOS(5, _omitFieldNames ? '' : 'objectType')
+    ..hasRequiredFields = false;
+
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UnchangedSharedObject clone() =>
+      UnchangedSharedObject()..mergeFromMessage(this);
+  @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
+  UnchangedSharedObject copyWith(
+          void Function(UnchangedSharedObject) updates) =>
+      super.copyWith((message) => updates(message as UnchangedSharedObject))
+          as UnchangedSharedObject;
+
+  @$core.override
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UnchangedSharedObject create() => UnchangedSharedObject._();
+  @$core.override
+  UnchangedSharedObject createEmptyInstance() => create();
+  static $pb.PbList<UnchangedSharedObject> createRepeated() =>
+      $pb.PbList<UnchangedSharedObject>();
+  @$core.pragma('dart2js:noInline')
+  static UnchangedSharedObject getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UnchangedSharedObject>(create);
+  static UnchangedSharedObject? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  UnchangedSharedObject_UnchangedSharedObjectKind get kind => $_getN(0);
+  @$pb.TagNumber(1)
+  set kind(UnchangedSharedObject_UnchangedSharedObjectKind value) =>
+      $_setField(1, value);
+  @$pb.TagNumber(1)
+  $core.bool hasKind() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearKind() => $_clearField(1);
+
+  /// ObjectId of the shared object.
+  @$pb.TagNumber(2)
+  $core.String get objectId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set objectId($core.String value) => $_setString(1, value);
+  @$pb.TagNumber(2)
+  $core.bool hasObjectId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearObjectId() => $_clearField(2);
+
+  /// Version of the shared object.
+  @$pb.TagNumber(3)
+  $fixnum.Int64 get version => $_getI64(2);
+  @$pb.TagNumber(3)
+  set version($fixnum.Int64 value) => $_setInt64(2, value);
+  @$pb.TagNumber(3)
+  $core.bool hasVersion() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearVersion() => $_clearField(3);
+
+  /// Digest of the shared object.
+  @$pb.TagNumber(4)
+  $core.String get digest => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set digest($core.String value) => $_setString(3, value);
+  @$pb.TagNumber(4)
+  $core.bool hasDigest() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearDigest() => $_clearField(4);
+
+  /// Type information is not provided by the effects structure but is instead
+  /// provided by an indexing layer
+  @$pb.TagNumber(5)
+  $core.String get objectType => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set objectType($core.String value) => $_setString(4, value);
+  @$pb.TagNumber(5)
+  $core.bool hasObjectType() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearObjectType() => $_clearField(5);
+}
+
+const $core.bool _omitFieldNames =
+    $core.bool.fromEnvironment('protobuf.omit_field_names');
+const $core.bool _omitMessageNames =
+    $core.bool.fromEnvironment('protobuf.omit_message_names');
