@@ -19,7 +19,9 @@ class SuiAddress extends Equatable {
   static final RegExp _addressPattern = RegExp(r'^0x[0-9a-fA-F]{64}$');
 
   final String _value;
-  const SuiAddress._(this._value);
+
+  @protected
+  const SuiAddress.internal(this._value);
 
   /// Factory: Creates a SuiAddress from a hexadecimal string.
   ///
@@ -36,7 +38,7 @@ class SuiAddress extends Equatable {
         throw SuiValidationException('address', 'Invalid Sui address format: $hexString');
       }
 
-      return SuiAddress._(normalized);
+      return SuiAddress.internal(normalized);
     } catch (e) {
       if (e is SuiValidationException) rethrow;
       throw SuiValidationException('address', 'Failed to parse Sui address "$hexString": $e');
@@ -67,7 +69,7 @@ class SuiAddress extends Equatable {
     }
 
     final hex = bytes.map((b) => b.toRadixString(16).padLeft(2, '0')).join();
-    return SuiAddress._('$hexPrefix$hex');
+    return SuiAddress.internal('$hexPrefix$hex');
   }
 
   /// Factory: Creates a SuiAddress from a BigInt (u256).
@@ -86,14 +88,14 @@ class SuiAddress extends Equatable {
     }
 
     final hex = value.toRadixString(16).padLeft(hexLength, '0');
-    return SuiAddress._('$hexPrefix$hex');
+    return SuiAddress.internal('$hexPrefix$hex');
   }
 
   /// Factory: Creates the zero address (0x0000...0000).
   ///
   /// This is often used as a default or null address value.
   factory SuiAddress.zero() {
-    return SuiAddress._('$hexPrefix${'0' * hexLength}');
+    return SuiAddress.internal('$hexPrefix${'0' * hexLength}');
   }
 
   /// Attempts to parse a string as a SuiAddress.
@@ -159,7 +161,7 @@ class SuiAddress extends Equatable {
   String get hexWithoutPrefix => _value.substring(hexPrefix.length);
 
   /// Returns the address (with 0x prefix) but in short form (display purpose).
-  String get shortForm {
+  String get shortHex {
     if (_value.length < 10) return _value;
     return '${_value.substring(0, 6)}...${_value.substring(_value.length - 4)}';
   }
@@ -223,7 +225,5 @@ class SuiAddress extends Equatable {
   List<Object?> get props => [_value];
 
   @override
-  String toString() {
-    return 'SuiAddress(hex: $_value), short: , isZero: )';
-  }
+  String toString() => 'SuiAddress(hex: $_value), short: $shortHex, isZero: $isZero)';
 }
