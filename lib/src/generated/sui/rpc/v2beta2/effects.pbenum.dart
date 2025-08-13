@@ -97,45 +97,47 @@ class ChangedObject_IdOperation extends $pb.ProtobufEnum {
   const ChangedObject_IdOperation._(super.value, super.name);
 }
 
-class UnchangedSharedObject_UnchangedSharedObjectKind extends $pb.ProtobufEnum {
-  static const UnchangedSharedObject_UnchangedSharedObjectKind
-      UNCHANGED_SHARED_OBJECT_KIND_UNKNOWN =
-      UnchangedSharedObject_UnchangedSharedObjectKind._(
-          0, _omitEnumNames ? '' : 'UNCHANGED_SHARED_OBJECT_KIND_UNKNOWN');
+class UnchangedConsensusObject_UnchangedConsensusObjectKind
+    extends $pb.ProtobufEnum {
+  static const UnchangedConsensusObject_UnchangedConsensusObjectKind
+      UNCHANGED_CONSENSUS_OBJECT_KIND_UNKNOWN =
+      UnchangedConsensusObject_UnchangedConsensusObjectKind._(
+          0, _omitEnumNames ? '' : 'UNCHANGED_CONSENSUS_OBJECT_KIND_UNKNOWN');
 
-  /// Read-only shared object from the input.
-  static const UnchangedSharedObject_UnchangedSharedObjectKind READ_ONLY_ROOT =
-      UnchangedSharedObject_UnchangedSharedObjectKind._(
+  /// Read-only consensus object from the input.
+  static const UnchangedConsensusObject_UnchangedConsensusObjectKind
+      READ_ONLY_ROOT = UnchangedConsensusObject_UnchangedConsensusObjectKind._(
           1, _omitEnumNames ? '' : 'READ_ONLY_ROOT');
 
   /// Objects with ended consensus streams that appear mutably/owned in the input.
-  static const UnchangedSharedObject_UnchangedSharedObjectKind
+  static const UnchangedConsensusObject_UnchangedConsensusObjectKind
       MUTATE_CONSENSUS_STREAM_ENDED =
-      UnchangedSharedObject_UnchangedSharedObjectKind._(
+      UnchangedConsensusObject_UnchangedConsensusObjectKind._(
           2, _omitEnumNames ? '' : 'MUTATE_CONSENSUS_STREAM_ENDED');
 
   /// Objects with ended consensus streams objects that appear as read-only in the input.
-  static const UnchangedSharedObject_UnchangedSharedObjectKind
+  static const UnchangedConsensusObject_UnchangedConsensusObjectKind
       READ_CONSENSUS_STREAM_ENDED =
-      UnchangedSharedObject_UnchangedSharedObjectKind._(
+      UnchangedConsensusObject_UnchangedConsensusObjectKind._(
           3, _omitEnumNames ? '' : 'READ_CONSENSUS_STREAM_ENDED');
 
   /// Consensus objects that were congested and resulted in this transaction being
   /// canceled.
-  static const UnchangedSharedObject_UnchangedSharedObjectKind CANCELED =
-      UnchangedSharedObject_UnchangedSharedObjectKind._(
+  static const UnchangedConsensusObject_UnchangedConsensusObjectKind CANCELED =
+      UnchangedConsensusObject_UnchangedConsensusObjectKind._(
           4, _omitEnumNames ? '' : 'CANCELED');
 
   /// Read of a per-epoch config object that should remain the same during an
   /// epoch. This optionally will indicate the sequence number of the config
   /// object at the start of the epoch.
-  static const UnchangedSharedObject_UnchangedSharedObjectKind
-      PER_EPOCH_CONFIG = UnchangedSharedObject_UnchangedSharedObjectKind._(
+  static const UnchangedConsensusObject_UnchangedConsensusObjectKind
+      PER_EPOCH_CONFIG =
+      UnchangedConsensusObject_UnchangedConsensusObjectKind._(
           5, _omitEnumNames ? '' : 'PER_EPOCH_CONFIG');
 
-  static const $core.List<UnchangedSharedObject_UnchangedSharedObjectKind>
-      values = <UnchangedSharedObject_UnchangedSharedObjectKind>[
-    UNCHANGED_SHARED_OBJECT_KIND_UNKNOWN,
+  static const $core.List<UnchangedConsensusObject_UnchangedConsensusObjectKind>
+      values = <UnchangedConsensusObject_UnchangedConsensusObjectKind>[
+    UNCHANGED_CONSENSUS_OBJECT_KIND_UNKNOWN,
     READ_ONLY_ROOT,
     MUTATE_CONSENSUS_STREAM_ENDED,
     READ_CONSENSUS_STREAM_ENDED,
@@ -143,13 +145,14 @@ class UnchangedSharedObject_UnchangedSharedObjectKind extends $pb.ProtobufEnum {
     PER_EPOCH_CONFIG,
   ];
 
-  static final $core.List<UnchangedSharedObject_UnchangedSharedObjectKind?>
-      _byValue = $pb.ProtobufEnum.$_initByValueList(values, 5);
-  static UnchangedSharedObject_UnchangedSharedObjectKind? valueOf(
+  static final $core
+      .List<UnchangedConsensusObject_UnchangedConsensusObjectKind?> _byValue =
+      $pb.ProtobufEnum.$_initByValueList(values, 5);
+  static UnchangedConsensusObject_UnchangedConsensusObjectKind? valueOf(
           $core.int value) =>
       value < 0 || value >= _byValue.length ? null : _byValue[value];
 
-  const UnchangedSharedObject_UnchangedSharedObjectKind._(
+  const UnchangedConsensusObject_UnchangedConsensusObjectKind._(
       super.value, super.name);
 }
 

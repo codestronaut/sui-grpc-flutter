@@ -1975,7 +1975,7 @@ class ConsensusCommitPrologue extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   void clearSubDagIndex() => $_clearField(5);
 
-  /// Stores consensus handler determined shared object version assignments.
+  /// Stores consensus handler determined consensus object version assignments.
   ///
   /// Present in V3, V4.
   @$pb.TagNumber(6)

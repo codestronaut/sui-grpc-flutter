@@ -40,7 +40,7 @@ class TransactionEffects extends $pb.GeneratedMessage {
     $core.Iterable<$core.String>? dependencies,
     $fixnum.Int64? lamportVersion,
     $core.Iterable<ChangedObject>? changedObjects,
-    $core.Iterable<UnchangedSharedObject>? unchangedSharedObjects,
+    $core.Iterable<UnchangedConsensusObject>? unchangedConsensusObjects,
     $core.String? auxiliaryDataDigest,
   }) {
     final result = create();
@@ -56,8 +56,8 @@ class TransactionEffects extends $pb.GeneratedMessage {
     if (dependencies != null) result.dependencies.addAll(dependencies);
     if (lamportVersion != null) result.lamportVersion = lamportVersion;
     if (changedObjects != null) result.changedObjects.addAll(changedObjects);
-    if (unchangedSharedObjects != null)
-      result.unchangedSharedObjects.addAll(unchangedSharedObjects);
+    if (unchangedConsensusObjects != null)
+      result.unchangedConsensusObjects.addAll(unchangedConsensusObjects);
     if (auxiliaryDataDigest != null)
       result.auxiliaryDataDigest = auxiliaryDataDigest;
     return result;
@@ -97,9 +97,9 @@ class TransactionEffects extends $pb.GeneratedMessage {
     ..pc<ChangedObject>(
         12, _omitFieldNames ? '' : 'changedObjects', $pb.PbFieldType.PM,
         subBuilder: ChangedObject.create)
-    ..pc<UnchangedSharedObject>(
-        13, _omitFieldNames ? '' : 'unchangedSharedObjects', $pb.PbFieldType.PM,
-        subBuilder: UnchangedSharedObject.create)
+    ..pc<UnchangedConsensusObject>(13,
+        _omitFieldNames ? '' : 'unchangedConsensusObjects', $pb.PbFieldType.PM,
+        subBuilder: UnchangedConsensusObject.create)
     ..aOS(14, _omitFieldNames ? '' : 'auxiliaryDataDigest')
     ..hasRequiredFields = false;
 
@@ -243,12 +243,13 @@ class TransactionEffects extends $pb.GeneratedMessage {
   @$pb.TagNumber(12)
   $pb.PbList<ChangedObject> get changedObjects => $_getList(11);
 
-  /// Shared objects that are not mutated in this transaction. Unlike owned objects,
-  /// read-only shared objects' version are not committed in the transaction,
+  /// Consensus objects that are not mutated in this transaction. Unlike owned objects,
+  /// read-only consensus objects' version are not committed in the transaction,
   /// and in order for a node to catch up and execute it without consensus sequencing,
   /// the version needs to be committed in the effects.
   @$pb.TagNumber(13)
-  $pb.PbList<UnchangedSharedObject> get unchangedSharedObjects => $_getList(12);
+  $pb.PbList<UnchangedConsensusObject> get unchangedConsensusObjects =>
+      $_getList(12);
 
   /// Auxiliary data that are not protocol-critical, generated as part of the effects but are stored separately.
   /// Storing it separately allows us to avoid bloating the effects with data that are not critical.
@@ -476,10 +477,10 @@ class ChangedObject extends $pb.GeneratedMessage {
   void clearObjectType() => $_clearField(11);
 }
 
-/// A shared object that wasn't changed during execution.
-class UnchangedSharedObject extends $pb.GeneratedMessage {
-  factory UnchangedSharedObject({
-    UnchangedSharedObject_UnchangedSharedObjectKind? kind,
+/// A consensus object that wasn't changed during execution.
+class UnchangedConsensusObject extends $pb.GeneratedMessage {
+  factory UnchangedConsensusObject({
+    UnchangedConsensusObject_UnchangedConsensusObjectKind? kind,
     $core.String? objectId,
     $fixnum.Int64? version,
     $core.String? digest,
@@ -494,26 +495,27 @@ class UnchangedSharedObject extends $pb.GeneratedMessage {
     return result;
   }
 
-  UnchangedSharedObject._();
+  UnchangedConsensusObject._();
 
-  factory UnchangedSharedObject.fromBuffer($core.List<$core.int> data,
+  factory UnchangedConsensusObject.fromBuffer($core.List<$core.int> data,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromBuffer(data, registry);
-  factory UnchangedSharedObject.fromJson($core.String json,
+  factory UnchangedConsensusObject.fromJson($core.String json,
           [$pb.ExtensionRegistry registry = $pb.ExtensionRegistry.EMPTY]) =>
       create()..mergeFromJson(json, registry);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      _omitMessageNames ? '' : 'UnchangedSharedObject',
+      _omitMessageNames ? '' : 'UnchangedConsensusObject',
       package:
           const $pb.PackageName(_omitMessageNames ? '' : 'sui.rpc.v2beta2'),
       createEmptyInstance: create)
-    ..e<UnchangedSharedObject_UnchangedSharedObjectKind>(
+    ..e<UnchangedConsensusObject_UnchangedConsensusObjectKind>(
         1, _omitFieldNames ? '' : 'kind', $pb.PbFieldType.OE,
-        defaultOrMaker: UnchangedSharedObject_UnchangedSharedObjectKind
-            .UNCHANGED_SHARED_OBJECT_KIND_UNKNOWN,
-        valueOf: UnchangedSharedObject_UnchangedSharedObjectKind.valueOf,
-        enumValues: UnchangedSharedObject_UnchangedSharedObjectKind.values)
+        defaultOrMaker: UnchangedConsensusObject_UnchangedConsensusObjectKind
+            .UNCHANGED_CONSENSUS_OBJECT_KIND_UNKNOWN,
+        valueOf: UnchangedConsensusObject_UnchangedConsensusObjectKind.valueOf,
+        enumValues:
+            UnchangedConsensusObject_UnchangedConsensusObjectKind.values)
     ..aOS(2, _omitFieldNames ? '' : 'objectId')
     ..a<$fixnum.Int64>(3, _omitFieldNames ? '' : 'version', $pb.PbFieldType.OU6,
         defaultOrMaker: $fixnum.Int64.ZERO)
@@ -522,39 +524,39 @@ class UnchangedSharedObject extends $pb.GeneratedMessage {
     ..hasRequiredFields = false;
 
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UnchangedSharedObject clone() =>
-      UnchangedSharedObject()..mergeFromMessage(this);
+  UnchangedConsensusObject clone() =>
+      UnchangedConsensusObject()..mergeFromMessage(this);
   @$core.Deprecated('See https://github.com/google/protobuf.dart/issues/998.')
-  UnchangedSharedObject copyWith(
-          void Function(UnchangedSharedObject) updates) =>
-      super.copyWith((message) => updates(message as UnchangedSharedObject))
-          as UnchangedSharedObject;
+  UnchangedConsensusObject copyWith(
+          void Function(UnchangedConsensusObject) updates) =>
+      super.copyWith((message) => updates(message as UnchangedConsensusObject))
+          as UnchangedConsensusObject;
 
   @$core.override
   $pb.BuilderInfo get info_ => _i;
 
   @$core.pragma('dart2js:noInline')
-  static UnchangedSharedObject create() => UnchangedSharedObject._();
+  static UnchangedConsensusObject create() => UnchangedConsensusObject._();
   @$core.override
-  UnchangedSharedObject createEmptyInstance() => create();
-  static $pb.PbList<UnchangedSharedObject> createRepeated() =>
-      $pb.PbList<UnchangedSharedObject>();
+  UnchangedConsensusObject createEmptyInstance() => create();
+  static $pb.PbList<UnchangedConsensusObject> createRepeated() =>
+      $pb.PbList<UnchangedConsensusObject>();
   @$core.pragma('dart2js:noInline')
-  static UnchangedSharedObject getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<UnchangedSharedObject>(create);
-  static UnchangedSharedObject? _defaultInstance;
+  static UnchangedConsensusObject getDefault() => _defaultInstance ??=
+      $pb.GeneratedMessage.$_defaultFor<UnchangedConsensusObject>(create);
+  static UnchangedConsensusObject? _defaultInstance;
 
   @$pb.TagNumber(1)
-  UnchangedSharedObject_UnchangedSharedObjectKind get kind => $_getN(0);
+  UnchangedConsensusObject_UnchangedConsensusObjectKind get kind => $_getN(0);
   @$pb.TagNumber(1)
-  set kind(UnchangedSharedObject_UnchangedSharedObjectKind value) =>
+  set kind(UnchangedConsensusObject_UnchangedConsensusObjectKind value) =>
       $_setField(1, value);
   @$pb.TagNumber(1)
   $core.bool hasKind() => $_has(0);
   @$pb.TagNumber(1)
   void clearKind() => $_clearField(1);
 
-  /// ObjectId of the shared object.
+  /// ObjectId of the consensus object.
   @$pb.TagNumber(2)
   $core.String get objectId => $_getSZ(1);
   @$pb.TagNumber(2)
@@ -564,7 +566,7 @@ class UnchangedSharedObject extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   void clearObjectId() => $_clearField(2);
 
-  /// Version of the shared object.
+  /// Version of the consensus object.
   @$pb.TagNumber(3)
   $fixnum.Int64 get version => $_getI64(2);
   @$pb.TagNumber(3)
@@ -574,7 +576,7 @@ class UnchangedSharedObject extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   void clearVersion() => $_clearField(3);
 
-  /// Digest of the shared object.
+  /// Digest of the consensus object.
   @$pb.TagNumber(4)
   $core.String get digest => $_getSZ(3);
   @$pb.TagNumber(4)

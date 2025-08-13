@@ -106,12 +106,12 @@ const TransactionEffects$json = {
       '10': 'changedObjects'
     },
     {
-      '1': 'unchanged_shared_objects',
+      '1': 'unchanged_consensus_objects',
       '3': 13,
       '4': 3,
       '5': 11,
-      '6': '.sui.rpc.v2beta2.UnchangedSharedObject',
-      '10': 'unchangedSharedObjects'
+      '6': '.sui.rpc.v2beta2.UnchangedConsensusObject',
+      '10': 'unchangedConsensusObjects'
     },
     {
       '1': 'auxiliary_data_digest',
@@ -150,13 +150,13 @@ final $typed_data.Uint8List transactionEffectsDescriptor = $convert.base64Decode
     'dhc09iamVjdIgBARIoCg1ldmVudHNfZGlnZXN0GAkgASgJSAhSDGV2ZW50c0RpZ2VzdIgBARIi'
     'CgxkZXBlbmRlbmNpZXMYCiADKAlSDGRlcGVuZGVuY2llcxIsCg9sYW1wb3J0X3ZlcnNpb24YCy'
     'ABKARICVIObGFtcG9ydFZlcnNpb26IAQESRwoPY2hhbmdlZF9vYmplY3RzGAwgAygLMh4uc3Vp'
-    'LnJwYy52MmJldGEyLkNoYW5nZWRPYmplY3RSDmNoYW5nZWRPYmplY3RzEmAKGHVuY2hhbmdlZF'
-    '9zaGFyZWRfb2JqZWN0cxgNIAMoCzImLnN1aS5ycGMudjJiZXRhMi5VbmNoYW5nZWRTaGFyZWRP'
-    'YmplY3RSFnVuY2hhbmdlZFNoYXJlZE9iamVjdHMSNwoVYXV4aWxpYXJ5X2RhdGFfZGlnZXN0GA'
-    '4gASgJSApSE2F1eGlsaWFyeURhdGFEaWdlc3SIAQFCBgoEX2Jjc0IJCgdfZGlnZXN0QgoKCF92'
-    'ZXJzaW9uQgkKB19zdGF0dXNCCAoGX2Vwb2NoQgsKCV9nYXNfdXNlZEIVChNfdHJhbnNhY3Rpb2'
-    '5fZGlnZXN0Qg0KC19nYXNfb2JqZWN0QhAKDl9ldmVudHNfZGlnZXN0QhIKEF9sYW1wb3J0X3Zl'
-    'cnNpb25CGAoWX2F1eGlsaWFyeV9kYXRhX2RpZ2VzdA==');
+    'LnJwYy52MmJldGEyLkNoYW5nZWRPYmplY3RSDmNoYW5nZWRPYmplY3RzEmkKG3VuY2hhbmdlZF'
+    '9jb25zZW5zdXNfb2JqZWN0cxgNIAMoCzIpLnN1aS5ycGMudjJiZXRhMi5VbmNoYW5nZWRDb25z'
+    'ZW5zdXNPYmplY3RSGXVuY2hhbmdlZENvbnNlbnN1c09iamVjdHMSNwoVYXV4aWxpYXJ5X2RhdG'
+    'FfZGlnZXN0GA4gASgJSApSE2F1eGlsaWFyeURhdGFEaWdlc3SIAQFCBgoEX2Jjc0IJCgdfZGln'
+    'ZXN0QgoKCF92ZXJzaW9uQgkKB19zdGF0dXNCCAoGX2Vwb2NoQgsKCV9nYXNfdXNlZEIVChNfdH'
+    'JhbnNhY3Rpb25fZGlnZXN0Qg0KC19nYXNfb2JqZWN0QhAKDl9ldmVudHNfZGlnZXN0QhIKEF9s'
+    'YW1wb3J0X3ZlcnNpb25CGAoWX2F1eGlsaWFyeV9kYXRhX2RpZ2VzdA==');
 
 @$core.Deprecated('Use changedObjectDescriptor instead')
 const ChangedObject$json = {
@@ -344,16 +344,17 @@ final $typed_data.Uint8List changedObjectDescriptor = $convert.base64Decode(
     'ZUIRCg9fb3V0cHV0X3ZlcnNpb25CEAoOX291dHB1dF9kaWdlc3RCDwoNX291dHB1dF9vd25lck'
     'IPCg1faWRfb3BlcmF0aW9uQg4KDF9vYmplY3RfdHlwZQ==');
 
-@$core.Deprecated('Use unchangedSharedObjectDescriptor instead')
-const UnchangedSharedObject$json = {
-  '1': 'UnchangedSharedObject',
+@$core.Deprecated('Use unchangedConsensusObjectDescriptor instead')
+const UnchangedConsensusObject$json = {
+  '1': 'UnchangedConsensusObject',
   '2': [
     {
       '1': 'kind',
       '3': 1,
       '4': 1,
       '5': 14,
-      '6': '.sui.rpc.v2beta2.UnchangedSharedObject.UnchangedSharedObjectKind',
+      '6':
+          '.sui.rpc.v2beta2.UnchangedConsensusObject.UnchangedConsensusObjectKind',
       '9': 0,
       '10': 'kind',
       '17': true
@@ -387,7 +388,7 @@ const UnchangedSharedObject$json = {
       '17': true
     },
   ],
-  '4': [UnchangedSharedObject_UnchangedSharedObjectKind$json],
+  '4': [UnchangedConsensusObject_UnchangedConsensusObjectKind$json],
   '8': [
     {'1': '_kind'},
     {'1': '_object_id'},
@@ -397,11 +398,11 @@ const UnchangedSharedObject$json = {
   ],
 };
 
-@$core.Deprecated('Use unchangedSharedObjectDescriptor instead')
-const UnchangedSharedObject_UnchangedSharedObjectKind$json = {
-  '1': 'UnchangedSharedObjectKind',
+@$core.Deprecated('Use unchangedConsensusObjectDescriptor instead')
+const UnchangedConsensusObject_UnchangedConsensusObjectKind$json = {
+  '1': 'UnchangedConsensusObjectKind',
   '2': [
-    {'1': 'UNCHANGED_SHARED_OBJECT_KIND_UNKNOWN', '2': 0},
+    {'1': 'UNCHANGED_CONSENSUS_OBJECT_KIND_UNKNOWN', '2': 0},
     {'1': 'READ_ONLY_ROOT', '2': 1},
     {'1': 'MUTATE_CONSENSUS_STREAM_ENDED', '2': 2},
     {'1': 'READ_CONSENSUS_STREAM_ENDED', '2': 3},
@@ -410,15 +411,15 @@ const UnchangedSharedObject_UnchangedSharedObjectKind$json = {
   ],
 };
 
-/// Descriptor for `UnchangedSharedObject`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List unchangedSharedObjectDescriptor = $convert.base64Decode(
-    'ChVVbmNoYW5nZWRTaGFyZWRPYmplY3QSWQoEa2luZBgBIAEoDjJALnN1aS5ycGMudjJiZXRhMi'
-    '5VbmNoYW5nZWRTaGFyZWRPYmplY3QuVW5jaGFuZ2VkU2hhcmVkT2JqZWN0S2luZEgAUgRraW5k'
-    'iAEBEiAKCW9iamVjdF9pZBgCIAEoCUgBUghvYmplY3RJZIgBARIdCgd2ZXJzaW9uGAMgASgESA'
-    'JSB3ZlcnNpb26IAQESGwoGZGlnZXN0GAQgASgJSANSBmRpZ2VzdIgBARIkCgtvYmplY3RfdHlw'
-    'ZRgFIAEoCUgEUgpvYmplY3RUeXBliAEBIsEBChlVbmNoYW5nZWRTaGFyZWRPYmplY3RLaW5kEi'
-    'gKJFVOQ0hBTkdFRF9TSEFSRURfT0JKRUNUX0tJTkRfVU5LTk9XThAAEhIKDlJFQURfT05MWV9S'
-    'T09UEAESIQodTVVUQVRFX0NPTlNFTlNVU19TVFJFQU1fRU5ERUQQAhIfChtSRUFEX0NPTlNFTl'
-    'NVU19TVFJFQU1fRU5ERUQQAxIMCghDQU5DRUxFRBAEEhQKEFBFUl9FUE9DSF9DT05GSUcQBUIH'
-    'CgVfa2luZEIMCgpfb2JqZWN0X2lkQgoKCF92ZXJzaW9uQgkKB19kaWdlc3RCDgoMX29iamVjdF'
-    '90eXBl');
+/// Descriptor for `UnchangedConsensusObject`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List unchangedConsensusObjectDescriptor = $convert.base64Decode(
+    'ChhVbmNoYW5nZWRDb25zZW5zdXNPYmplY3QSXwoEa2luZBgBIAEoDjJGLnN1aS5ycGMudjJiZX'
+    'RhMi5VbmNoYW5nZWRDb25zZW5zdXNPYmplY3QuVW5jaGFuZ2VkQ29uc2Vuc3VzT2JqZWN0S2lu'
+    'ZEgAUgRraW5kiAEBEiAKCW9iamVjdF9pZBgCIAEoCUgBUghvYmplY3RJZIgBARIdCgd2ZXJzaW'
+    '9uGAMgASgESAJSB3ZlcnNpb26IAQESGwoGZGlnZXN0GAQgASgJSANSBmRpZ2VzdIgBARIkCgtv'
+    'YmplY3RfdHlwZRgFIAEoCUgEUgpvYmplY3RUeXBliAEBIscBChxVbmNoYW5nZWRDb25zZW5zdX'
+    'NPYmplY3RLaW5kEisKJ1VOQ0hBTkdFRF9DT05TRU5TVVNfT0JKRUNUX0tJTkRfVU5LTk9XThAA'
+    'EhIKDlJFQURfT05MWV9ST09UEAESIQodTVVUQVRFX0NPTlNFTlNVU19TVFJFQU1fRU5ERUQQAh'
+    'IfChtSRUFEX0NPTlNFTlNVU19TVFJFQU1fRU5ERUQQAxIMCghDQU5DRUxFRBAEEhQKEFBFUl9F'
+    'UE9DSF9DT05GSUcQBUIHCgVfa2luZEIMCgpfb2JqZWN0X2lkQgoKCF92ZXJzaW9uQgkKB19kaW'
+    'dlc3RCDgoMX29iamVjdF90eXBl');

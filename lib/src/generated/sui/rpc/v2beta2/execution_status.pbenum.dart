@@ -186,24 +186,25 @@ class ExecutionError_ExecutionErrorKind extends $pb.ProtobufEnum {
       SUI_MOVE_VERIFICATION_TIMEDOUT = ExecutionError_ExecutionErrorKind._(
           31, _omitEnumNames ? '' : 'SUI_MOVE_VERIFICATION_TIMEDOUT');
 
-  /// The requested shared object operation is not allowed.
+  /// The requested consensus object operation is not allowed.
   static const ExecutionError_ExecutionErrorKind
-      SHARED_OBJECT_OPERATION_NOT_ALLOWED = ExecutionError_ExecutionErrorKind._(
-          32, _omitEnumNames ? '' : 'SHARED_OBJECT_OPERATION_NOT_ALLOWED');
+      CONSENSUS_OBJECT_OPERATION_NOT_ALLOWED =
+      ExecutionError_ExecutionErrorKind._(
+          32, _omitEnumNames ? '' : 'CONSENSUS_OBJECT_OPERATION_NOT_ALLOWED');
 
-  /// Requested shared object has been deleted.
+  /// Requested consensus object has been deleted.
   static const ExecutionError_ExecutionErrorKind INPUT_OBJECT_DELETED =
       ExecutionError_ExecutionErrorKind._(
           33, _omitEnumNames ? '' : 'INPUT_OBJECT_DELETED');
 
-  /// Certificate is canceled due to congestion on shared objects.
+  /// Certificate is canceled due to congestion on consensus objects.
   static const ExecutionError_ExecutionErrorKind
-      EXECUTION_CANCELED_DUE_TO_SHARED_OBJECT_CONGESTION =
+      EXECUTION_CANCELED_DUE_TO_CONSENSUS_OBJECT_CONGESTION =
       ExecutionError_ExecutionErrorKind._(
           34,
           _omitEnumNames
               ? ''
-              : 'EXECUTION_CANCELED_DUE_TO_SHARED_OBJECT_CONGESTION');
+              : 'EXECUTION_CANCELED_DUE_TO_CONSENSUS_OBJECT_CONGESTION');
 
   /// Address is denied for this coin type.
   static const ExecutionError_ExecutionErrorKind ADDRESS_DENIED_FOR_COIN =
@@ -267,9 +268,9 @@ class ExecutionError_ExecutionErrorKind extends $pb.ProtobufEnum {
     WRITTEN_OBJECTS_TOO_LARGE,
     CERTIFICATE_DENIED,
     SUI_MOVE_VERIFICATION_TIMEDOUT,
-    SHARED_OBJECT_OPERATION_NOT_ALLOWED,
+    CONSENSUS_OBJECT_OPERATION_NOT_ALLOWED,
     INPUT_OBJECT_DELETED,
-    EXECUTION_CANCELED_DUE_TO_SHARED_OBJECT_CONGESTION,
+    EXECUTION_CANCELED_DUE_TO_CONSENSUS_OBJECT_CONGESTION,
     ADDRESS_DENIED_FOR_COIN,
     COIN_TYPE_GLOBAL_PAUSE,
     EXECUTION_CANCELED_DUE_TO_RANDOMNESS_UNAVAILABLE,
@@ -362,12 +363,12 @@ class CommandArgumentError_CommandArgumentErrorKind extends $pb.ProtobufEnum {
       CommandArgumentError_CommandArgumentErrorKind._(
           11, _omitEnumNames ? '' : 'INVALID_OBJECT_BY_MUT_REF');
 
-  /// Shared object operations such as wrapping, freezing, or converting to owned are not
+  /// Consensus object operations such as wrapping, freezing, or converting to owned are not
   /// allowed.
   static const CommandArgumentError_CommandArgumentErrorKind
-      SHARED_OBJECT_OPERATION_NOT_ALLOWED =
+      CONSENSUS_OBJECT_OPERATION_NOT_ALLOWED =
       CommandArgumentError_CommandArgumentErrorKind._(
-          12, _omitEnumNames ? '' : 'SHARED_OBJECT_OPERATION_NOT_ALLOWED');
+          12, _omitEnumNames ? '' : 'CONSENSUS_OBJECT_OPERATION_NOT_ALLOWED');
 
   /// Invalid argument arity. Expected a single argument but found a result that expanded to
   /// multiple arguments.
@@ -389,7 +390,7 @@ class CommandArgumentError_CommandArgumentErrorKind extends $pb.ProtobufEnum {
     INVALID_VALUE_USAGE,
     INVALID_OBJECT_BY_VALUE,
     INVALID_OBJECT_BY_MUT_REF,
-    SHARED_OBJECT_OPERATION_NOT_ALLOWED,
+    CONSENSUS_OBJECT_OPERATION_NOT_ALLOWED,
     INVALID_ARGUMENT_ARITY,
   ];
 
