@@ -1,6 +1,6 @@
 # Sui gRPC Flutter
 
-![Example App](docs/showcase.png)
+![Example App](doc/showcase.png)
 
 High-performance gRPC client for Sui blockchain in Flutter applications.
 
