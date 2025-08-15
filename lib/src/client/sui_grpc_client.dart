@@ -135,7 +135,7 @@ class SuiGrpcClient {
       final request = GetServiceInfoRequest();
       final callOptions = createCallOptions(timeout: const Duration(seconds: 5));
       final serviceInfo = await _ledgerService.getServiceInfo(request, options: callOptions);
-      logger.info(serviceInfo);
+      logger.info(serviceInfo.toProto3Json());
 
       return true;
     } catch (e) {

@@ -14,8 +14,8 @@ class SuiObject extends Equatable {
   final int version;
   final String digest;
   final String? type;
-  final Map<String, dynamic>? fields;
   final ObjectOwner? owner;
+  final Map<String, dynamic>? contents;
   final String? previousTransaction;
   final int? storageRebate;
 
@@ -24,8 +24,8 @@ class SuiObject extends Equatable {
     required this.version,
     required this.digest,
     this.type,
-    this.fields,
     this.owner,
+    this.contents,
     this.previousTransaction,
     this.storageRebate,
   });
@@ -40,10 +40,10 @@ class SuiObject extends Equatable {
         version: _parseVersion(data['version']),
         digest: data['digest'] as String,
         type: data['type'] as String?,
-        fields: data['fields'] as Map<String, dynamic>?,
         owner: data['owner'] != null
             ? ObjectOwner.fromJson(data['owner'] as Map<String, dynamic>)
             : null,
+        contents: data['contents'] as Map<String, dynamic>?,
         previousTransaction: data['previousTransaction'] as String?,
         storageRebate: data['storageRebate'] as int?,
       );
@@ -71,8 +71,8 @@ class SuiObject extends Equatable {
     'version': version,
     'digest': digest,
     if (type != null) 'type': type,
-    if (fields != null) 'fields': fields,
     if (owner != null) 'owner': owner!.toJson(),
+    if (contents != null) 'fields': contents,
     if (previousTransaction != null) 'previousTransaction': previousTransaction,
     if (storageRebate != null) 'storageRebate': previousTransaction,
   };
@@ -110,8 +110,8 @@ class SuiObject extends Equatable {
     version,
     digest,
     type,
-    fields,
     owner,
+    contents,
     previousTransaction,
     storageRebate,
   ];
@@ -121,8 +121,8 @@ class SuiObject extends Equatable {
     int? version,
     String? digest,
     String? type,
-    Map<String, dynamic>? fields,
     ObjectOwner? owner,
+    Map<String, dynamic>? contents,
     String? previousTransaction,
     int? storageRebate,
   }) {
@@ -131,27 +131,24 @@ class SuiObject extends Equatable {
       version: version ?? this.version,
       digest: digest ?? this.digest,
       type: type ?? this.type,
-      fields: fields ?? this.fields,
       owner: owner ?? this.owner,
+      contents: contents ?? this.contents,
       previousTransaction: previousTransaction ?? this.previousTransaction,
       storageRebate: storageRebate ?? this.storageRebate,
     );
   }
 
   @override
-  bool? get stringify => true;
-
-  /// Returns a detailed debug string.
-  String toDebugString() {
+  String toString() {
     return 'SuiObject(\n'
         '  id: ${objectId.hex}\n'
         '  version: $version\n'
         '  digest: $digest\n'
         '  type: $type\n'
         '  owner: $owner\n'
+        '  contents: $contents\n'
         '  previousTx: $previousTransaction\n'
         '  storageRebate: $storageRebate\n'
-        '  fields: $fields\n'
         ')';
   }
 }
