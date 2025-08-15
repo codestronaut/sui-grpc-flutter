@@ -3,6 +3,7 @@
 ![Example App](docs/showcase.png)
 
 High-performance gRPC client for Sui blockchain in Flutter applications.
+
 https://docs.sui.io/concepts/grpc-overview
 
 > This Flutter plugin is in active development and may introduce breaking changes. Contributions from developers who want to help shape the project at this stage are welcome. Feedback, bug reports, and pull requests are greatly appreciated as the project moves toward a stable release.
