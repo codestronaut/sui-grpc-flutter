@@ -37,9 +37,9 @@ class SuiDemo extends StatefulWidget {
 }
 
 class _SuiDemoState extends State<SuiDemo> {
+  late SuiNetwork _network;
   late SuiGrpcClient _client;
   late SuiLedgerService _ledgerService;
-  late String _endpoint;
   ConnectStatus _status = ConnectStatus.disconnected;
 
   final _objectIdController = TextEditingController();
@@ -52,8 +52,8 @@ class _SuiDemoState extends State<SuiDemo> {
   }
 
   void _initializeClient() {
-    _endpoint = SuiGrpcEndpoints.testnet;
-    _client = SuiGrpcClient(endpoint: _endpoint, port: 443, useSSL: true);
+    _network = SuiNetwork.testnet;
+    _client = SuiGrpcClient.fromNetwork(_network);
     _ledgerService = SuiLedgerService(_client);
   }
 
@@ -129,7 +129,7 @@ class _SuiDemoState extends State<SuiDemo> {
                         color: Colors.grey.shade300,
                         shape: StadiumBorder(),
                       ),
-                      child: Text(_endpoint),
+                      child: Text('${_network.displayName}: ${_network.grpcUrl}'),
                     ),
                     Row(
                       spacing: 4.0,

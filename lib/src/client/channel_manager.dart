@@ -1,41 +1,56 @@
 import 'package:grpc/grpc.dart';
 
-class ChannelManager {
-  final String endpoint;
-  final int port;
-  final bool useSSL;
-  final Duration timeout;
-  final Map<String, String> metadata;
+import '../config/sui_network.dart';
 
+class ChannelManager {
+  final SuiNetworkConfig _config;
   late final ClientChannel _channel;
   bool _isDisposed = false;
 
+  /// Create channel manager from network configuration
+  ChannelManager.fromConfig(this._config) {
+    _initializeChannel();
+  }
+
+  /// Create channel manager with explicit parameters
   ChannelManager({
-    required this.endpoint,
-    required this.port,
-    required this.useSSL,
-    required this.timeout,
-    required this.metadata,
-  }) {
+    required String endpoint,
+    required int port,
+    required bool useSSL,
+    required Duration timeout,
+    required Map<String, String> metadata,
+  }) : _config = SuiNetworkConfig.custom(
+         endpoint: endpoint,
+         port: port,
+         useSSL: useSSL,
+         timeout: timeout,
+         metadata: metadata,
+       ) {
     _initializeChannel();
   }
 
   void _initializeChannel() {
     _channel = ClientChannel(
-      endpoint,
-      port: port,
+      _config.endpoint,
+      port: _config.port,
       options: ChannelOptions(
-        credentials: switch (useSSL) {
-          true => const ChannelCredentials.secure(),
-          false => const ChannelCredentials.insecure(),
-        },
+        credentials: _config.useSSL
+            ? const ChannelCredentials.secure()
+            : const ChannelCredentials.insecure(),
         keepAlive: const ClientKeepAliveOptions(
           pingInterval: Duration(seconds: 30),
           timeout: Duration(seconds: 5),
           permitWithoutCalls: true,
         ),
+        userAgent: _buildUserAgent(),
       ),
     );
+  }
+
+  String _buildUserAgent() {
+    final baseAgent = 'sui-grpc-flutter/0.1.0';
+    final networkInfo = _config.network?.name ?? 'custom';
+    return '$baseAgent ($networkInfo)';
   }
 
   ClientChannel get channel {
@@ -43,13 +58,17 @@ class ChannelManager {
     return _channel;
   }
 
+  SuiNetworkConfig get config => _config;
+
   CallOptions createCallOptions({Duration? timeout, Map<String, String>? additionalMetadata}) {
     final allMetadata = <String, String>{
-      ...metadata,
+      ..._config.metadata,
       if (additionalMetadata != null) ...additionalMetadata,
+      'client': 'sui-grpc-flutter',
+      'timestamp': DateTime.now().toIso8601String(),
     };
 
-    return CallOptions(timeout: timeout ?? this.timeout, metadata: allMetadata);
+    return CallOptions(timeout: timeout ?? _config.timeout, metadata: allMetadata);
   }
 
   Future<void> close() async {
