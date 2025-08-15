@@ -140,4 +140,18 @@ class SuiObject extends Equatable {
 
   @override
   bool? get stringify => true;
+
+  /// Returns a detailed debug string.
+  String toDebugString() {
+    return 'SuiObject(\n'
+        '  id: ${objectId.hex}\n'
+        '  version: $version\n'
+        '  digest: $digest\n'
+        '  type: $type\n'
+        '  owner: $owner\n'
+        '  previousTx: $previousTransaction\n'
+        '  storageRebate: $storageRebate\n'
+        '  fields: $fields\n'
+        ')';
+  }
 }

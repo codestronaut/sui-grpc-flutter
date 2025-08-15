@@ -5,6 +5,7 @@ import '../exceptions/sui_exception.dart';
 import '../generated/google/protobuf/field_mask.pb.dart';
 import '../generated/sui/rpc/v2beta2/ledger_service.pbgrpc.dart';
 import '../models/sui_object.dart';
+import '../utils/logging.dart';
 
 class SuiLedgerService {
   final SuiGrpcClient _client;
@@ -18,7 +19,6 @@ class SuiLedgerService {
   }) async {
     try {
       final request = GetObjectRequest()..objectId = objectId.hex;
-
       if (fieldMask != null && fieldMask.isNotEmpty) {
         request.readMask = FieldMask()..paths.addAll(fieldMask);
       }
@@ -26,7 +26,10 @@ class SuiLedgerService {
       final callOptions = _client.createCallOptions(timeout: timeout);
       final response = await _client.ledger.getObject(request, options: callOptions);
 
-      return _convertToSuiObject(response);
+      final object = _convertToSuiObject(response);
+      logger.info(object);
+
+      return object;
     } on GrpcError catch (e) {
       throw SuiGrpcException.fromGrpcError(e);
     } catch (e) {
@@ -54,6 +57,9 @@ class SuiLedgerService {
         version: object.version.toInt(),
         digest: object.digest,
         type: object.hasObjectType() ? object.objectType.toString() : null,
+        owner: object.hasOwner()
+            ? ObjectOwner.fromJson(object.owner.toProto3Json() as Map<String, dynamic>)
+            : null,
         // Add more field conversions as needed
       );
     } catch (e) {

@@ -226,4 +226,13 @@ class SuiAddress extends Equatable {
 
   @override
   String toString() => 'SuiAddress(hex: $_value), short: $shortHex, isZero: $isZero)';
+
+  /// Returns a detailed debug string.
+  String toDebugString() {
+    return 'SuiAddress(\n'
+        '  hex: $_value\n'
+        '  short: $shortHex\n'
+        '  isZero: $isZero\n'
+        ')';
+  }
 }

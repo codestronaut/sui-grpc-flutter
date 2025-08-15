@@ -2,7 +2,14 @@ import 'package:grpc/grpc.dart';
 
 import '../generated/sui/rpc/v2beta2/ledger_service.pbgrpc.dart';
 import '../generated/sui/rpc/v2beta2/transaction_execution_service.pbgrpc.dart';
+import '../utils/logging.dart';
 import 'channel_manager.dart';
+
+class SuiGrpcEndpoints {
+  static const devnet = 'fullnode.devnet.sui.io';
+  static const testnet = 'fullnode.testnet.sui.io';
+  static const mainnet = 'fullnode.mainnet.sui.io';
+}
 
 class SuiGrpcClient {
   final ChannelManager _channelManager;
@@ -22,6 +29,7 @@ class SuiGrpcClient {
          timeout: timeout ?? const Duration(seconds: 30),
          metadata: metadata ?? {},
        ) {
+    Logging.initialize();
     _initializeServices();
   }
 
@@ -48,7 +56,9 @@ class SuiGrpcClient {
   Future<bool> isHealty() async {
     try {
       final request = GetServiceInfoRequest();
-      await _ledgerService.getServiceInfo(request);
+      final serviceInfo = await _ledgerService.getServiceInfo(request);
+      logger.info(serviceInfo);
+
       return true;
     } catch (e) {
       return false;

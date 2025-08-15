@@ -43,14 +43,6 @@ class ChannelManager {
     return _channel;
   }
 
-  Future<void> close() async {
-    if (!_isDisposed) {
-      await _channel.shutdown();
-      _isDisposed = true;
-    }
-  }
-
-  /// Create call options with timeout and metadata
   CallOptions createCallOptions({Duration? timeout, Map<String, String>? additionalMetadata}) {
     final allMetadata = <String, String>{
       ...metadata,
@@ -58,5 +50,12 @@ class ChannelManager {
     };
 
     return CallOptions(timeout: timeout ?? this.timeout, metadata: allMetadata);
+  }
+
+  Future<void> close() async {
+    if (!_isDisposed) {
+      await _channel.shutdown();
+      _isDisposed = true;
+    }
   }
 }

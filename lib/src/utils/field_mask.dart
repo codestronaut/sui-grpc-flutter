@@ -1,7 +1,14 @@
 class FieldMask {
   // Common field masks for objects
-  static const List<String> objectBasic = ['id', 'version', 'digest', 'type'];
-  static const List<String> objectFull = ['id', 'version', 'digest', 'type', 'content', 'owner'];
+  static const List<String> objectBasic = ['object_id', 'version', 'digest', 'object_type'];
+  static const List<String> objectFull = [
+    'object_id',
+    'version',
+    'digest',
+    'object_type',
+    'contents',
+    'owner',
+  ];
   static const List<String> objectContent = ['content'];
 
   // Common field masks for transactions
