@@ -1,3 +1,11 @@
-## 0.0.1
+# Changelog
 
-* TODO: Describe initial release.
+## [0.1.0] - 2025-08-16
+### Added
+- Initial gRPC client implementation
+- Object query operations
+- Network configuration
+
+### Changed
+
+### Fixed
