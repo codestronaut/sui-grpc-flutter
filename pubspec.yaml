@@ -1,6 +1,6 @@
 name: sui_grpc_flutter
 description: "High-performance gRPC client for Sui blockchain in Flutter"
-version: 0.1.0
+version: 0.1.1
 homepage: https://github.com/codestronaut/sui-grpc-flutter
 
 environment:
